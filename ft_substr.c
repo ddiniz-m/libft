@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:54:21 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/03 16:18:21 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:06:08 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,37 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
+	size_t	i;
 	char	*buff;
 
 	i = 0;
-	buff = (char *)s;
-	buff = malloc(len * sizeof(char));
-	while (i <= (int)len)
+	if (start >= ft_strlen(s))
+	{
+		buff = malloc(sizeof(char));
+		buff[0] = '\0';
+		return (buff);
+	}
+	if (ft_strlen(s) - start >= len)
+		buff = malloc((len + 1) * sizeof(char));
+	else
+		buff = malloc((ft_strlen(s) - start + 1) * sizeof(char));
+	if (!buff)
+		return (0);
+	while (s[start] && i < len && start < ft_strlen(s))
 	{
 		buff[i] = s[start];
 		start++;
 		i++;
 	}
-	return ((char *)buff);
+	buff[i] = '\0';
+	return (buff);
+	free(buff);
 }
 
-/* int	main()
+/* #include<stdio.h>
+int	main()
 {
-	char str[] = "Let's go to the Grandline";
-	printf ("%s\n", ft_substr(str, 16, 9));
+	char str[] = "hola";
+	printf ("%s\n", ft_substr(str, 0, 5));
 	return(0);
 } */

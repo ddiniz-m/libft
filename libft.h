@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:31:19 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/07 17:29:22 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:09:40 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 
 # include <string.h>
 # include <stdlib.h>
-
-/* #include <unistd.h>
-#include <stdio.h>
-#include <ctype.h>
-#include <strings.h> */
+# include <unistd.h>
 
 int		ft_atoi(const char *nptr);
 

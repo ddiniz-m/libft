@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 12:43:45 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/04 10:42:54 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/08 11:46:27 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,12 @@ int	ft_atoi(const char *str)
 	{	
 		num = (str[i] - '0') + (num * 10);
 		i++;
-		if (str[i] == '\0')
-			return (num * sign);
 	}
-	return (0);
+	return (num * sign);
 }
 
-/* int	main()
+/* #include <stdio.h>
+int	main()
 {
 	printf("%d\n", ft_atoi("  -12312a"));
 } */

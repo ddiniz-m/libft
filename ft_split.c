@@ -6,11 +6,21 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:58:22 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/07 17:29:45 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/08 11:44:02 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+} */
 
 int	counter(char const *s, int c)
 {
@@ -19,7 +29,7 @@ int	counter(char const *s, int c)
 
 	i = 0;
 	words = 0;
-	if (s[i] != c)
+	if (s[i] != c && s[i] != '\0')
 		words++;
 	while (s[i] != '\0')
 	{
@@ -47,13 +57,11 @@ int	word_size(char s1, char c)
 	return (i);
 }
 
-char	*make_temp(int i, const char *s, char c)
+char	*make_temp(int i, char const *s, char c)
 {
 	char	*temp;
 
-	temp = (char *)malloc((i + 1) * sizeof(char));
-	if (!temp)
-		return (0);
+	temp = (char *)malloc(((i + 1) * sizeof(s)));
 	i = 0;
 	while (*s && *s != c)
 		temp[i++] = *s++;
@@ -70,10 +78,10 @@ char	**ft_split(char const *s, char c)
 
 	j = 0;
 	count = counter(s, c);
-	buff = (char **)malloc((counter(s, c) + 1) * sizeof(char *));
+	buff = (char **)malloc((count + 1) * sizeof(char *));
 	if (!buff)
 		return (0);
-	while (*s != '\0')
+	while (j < count)
 	{
 		i = 0;
 		while (*s && *s == c && j != count)
@@ -91,19 +99,20 @@ char	**ft_split(char const *s, char c)
 }
 
 /* #include <stdio.h>
+#include <unistd.h>
 int main()
 {
 	int i = 0;
-	char str[] = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.";
-	char c = 'i';
+	char str[] = "dajdhaoidhaoiwhdoi ahwoihdoiawh";
+	char c = 'z';
 	int j = counter(str, c);
 	char **buff = ft_split(str, c);
+	char **tabstr;
 	while (i <= j)
 	{
 		printf("s: %s\n", buff[i]);
 		i++;
 	}
-	return(0);
 } */
 /*
 15: When it encounters "c" checks if the next character 

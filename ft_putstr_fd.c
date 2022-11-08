@@ -6,18 +6,17 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 16:07:56 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/03 16:15:46 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:42:41 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	while (*s)
+	{
+		write(fd, &*s, 1);
+		s++;
+	}	
 }
