@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:31:19 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/08 15:09:40 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/09 11:50:33 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*ft_strchr(const char *s, int c);
 
 char	*ft_strdup(const char *s);
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 char	*ft_strjoin(char const *s1, char const *s2);
 

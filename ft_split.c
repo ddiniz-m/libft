@@ -6,11 +6,12 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:58:22 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/08 11:44:02 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/09 15:21:39 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include<stdio.h>
 
 /* size_t	ft_strlen(const char *str)
 {
@@ -44,16 +45,13 @@ int	counter(char const *s, int c)
 	return (words);
 }
 
-int	word_size(char s1, char c)
+int	word_size(char const *s, char c)
 {
 	int	i;
 
 	i = 0;
-	while (s1 != c)
-	{
+	while (s[i] != c && s[i] != '\0')
 		i++;
-		s1++;
-	}
 	return (i);
 }
 
@@ -61,7 +59,9 @@ char	*make_temp(int i, char const *s, char c)
 {
 	char	*temp;
 
-	temp = (char *)malloc(((i + 1) * sizeof(s)));
+	temp = (char *)malloc((i + 1) * sizeof(char));
+	if (!temp)
+		return (0);
 	i = 0;
 	while (*s && *s != c)
 		temp[i++] = *s++;
@@ -83,37 +83,36 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	while (j < count)
 	{
-		i = 0;
 		while (*s && *s == c && j != count)
 			s++;
-		i = word_size(*s, c);
+		i = word_size(s, c);
 		if (i > 0)
 		{
 			buff[j++] = make_temp(i, s, c);
 			s = s + ft_strlen(make_temp(i, s, c));
 		}
 		else
-			buff[j++] = '\0';
+			buff[j++] = 0;
 	}
 	return (buff);
 }
 
-/* #include <stdio.h>
+#include <stdio.h>
 #include <unistd.h>
+
 int main()
 {
 	int i = 0;
-	char str[] = "dajdhaoidhaoiwhdoi ahwoihdoiawh";
+	char str[] = "";
 	char c = 'z';
 	int j = counter(str, c);
 	char **buff = ft_split(str, c);
-	char **tabstr;
 	while (i <= j)
 	{
 		printf("s: %s\n", buff[i]);
 		i++;
 	}
-} */
+}
 /*
 15: When it encounters "c" checks if the next character 
 is not "c" and adds 1 to "words".If this condition is 
