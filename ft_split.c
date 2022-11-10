@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:58:22 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/09 15:21:39 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/10 14:38:00 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 	return (i);
 } */
 
-int	counter(char const *s, int c)
+int	word_counter(char const *s, int c)
 {
 	int	i;
 	int	words;
@@ -59,9 +59,8 @@ char	*make_temp(int i, char const *s, char c)
 {
 	char	*temp;
 
+	temp = NULL;
 	temp = (char *)malloc((i + 1) * sizeof(char));
-	if (!temp)
-		return (0);
 	i = 0;
 	while (*s && *s != c)
 		temp[i++] = *s++;
@@ -77,7 +76,7 @@ char	**ft_split(char const *s, char c)
 	char	**buff;
 
 	j = 0;
-	count = counter(s, c);
+	count = word_counter(s, c);
 	buff = (char **)malloc((count + 1) * sizeof(char *));
 	if (!buff)
 		return (0);
@@ -86,35 +85,31 @@ char	**ft_split(char const *s, char c)
 		while (*s && *s == c && j != count)
 			s++;
 		i = word_size(s, c);
-		if (i > 0)
-		{
-			buff[j++] = make_temp(i, s, c);
-			s = s + ft_strlen(make_temp(i, s, c));
-		}
-		else
-			buff[j++] = 0;
+		buff[j++] = make_temp(i, s, c);
+		s = s + i + 1;
 	}
+	buff[j] = 0;
 	return (buff);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 #include <unistd.h>
 
 int main()
 {
 	int i = 0;
-	char str[] = "";
-	char c = 'z';
-	int j = counter(str, c);
+	char str[] = "  tripouille  42  ";
+	char c = ' ';
+	int j = word_counter(str, c);
 	char **buff = ft_split(str, c);
 	while (i <= j)
 	{
 		printf("s: %s\n", buff[i]);
 		i++;
 	}
-}
+} */
 /*
-15: When it encounters "c" checks if the next character 
+15: When it enword_counters "c" checks if the next character 
 is not "c" and adds 1 to "words".If this condition is 
 not true, it just keeps checking every character until
 it finds another "c" that hasn't "c" as the next character

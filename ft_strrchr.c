@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:22:49 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/03 18:04:04 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/10 13:19:40 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_strrchr(const char *s, int c)
 
 int main()
 {
-	char str[] = "hello.\0com.pt";
-	int c = '\0';
+	char str[] = "hello.tcom.pt";
+	int c = 't' + 256;
 	printf("%s\n", ft_strrchr(str, c));
 } */
