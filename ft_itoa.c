@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:45:46 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/07 11:31:11 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/11 15:22:37 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ char	*ft_itoa(int n)
 	if (m < 0)
 		str[0] = 45;
 	return (str);
-	free (str);
 }
 
 /* #include <stdio.h>

@@ -6,41 +6,26 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:58:22 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/10 14:38:00 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/11 13:56:51 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include<stdio.h>
-
-/* size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-} */
+#include <stdio.h>
 
 int	word_counter(char const *s, int c)
 {
-	int	i;
 	int	words;
 
-	i = 0;
 	words = 0;
-	if (s[i] != c && s[i] != '\0')
-		words++;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		i++;
-		while (s[i] == c)
-		{
-			if (s[i + 1] != c && s[i + 1] != '\0')
-				words++;
-			i++;
-		}
+		while (*s && *s == c)
+			s++;
+		if (*s)
+			words++;
+		while (*s && *s != c)
+			s++;
 	}
 	return (words);
 }
@@ -95,13 +80,19 @@ char	**ft_split(char const *s, char c)
 /* #include <stdio.h>
 #include <unistd.h>
 
-int main()
+int	main(void)
 {
-	int i = 0;
-	char str[] = "  tripouille  42  ";
-	char c = ' ';
-	int j = word_counter(str, c);
-	char **buff = ft_split(str, c);
+	int		i;
+	char	*str;
+	char	c;
+	int		j;
+	char	**buff;
+
+	i = 0;
+	str = " Tripou   ille ";
+	c = ' ';
+	j = word_counter(str, c);
+	buff = ft_split(str, c);
 	while (i <= j)
 	{
 		printf("s: %s\n", buff[i]);

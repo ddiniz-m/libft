@@ -6,14 +6,14 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:31:19 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/10 15:46:28 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:16:29 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
+
 # include <stdlib.h>
 # include <unistd.h>
 
